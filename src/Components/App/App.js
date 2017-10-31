@@ -3,7 +3,7 @@ import './App.css'
 
 import SearchBar from '../SearchBar/SearchBar.js'
 import SearchResults from '../SearchResults/SearchResults.js'
-import PlayList from '../PlayList/PlayList.js'
+import Playlist from '../Playlist/Playlist.js'
 
 class App extends React.Component {
   render() {
