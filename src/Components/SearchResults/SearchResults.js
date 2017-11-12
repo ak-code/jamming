@@ -1,9 +1,12 @@
+// Import react & CSS
 import React from 'react'
 import './SearchResults.css'
 
+// Import Components
 import TrackList from '../TrackList/TrackList.js'
 
 class SearchResults extends React.Component {
+  // Render Constructor
   render() {
     return (
       <div className="SearchResults">

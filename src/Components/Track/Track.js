@@ -1,3 +1,4 @@
+// Import react & CSS
 import React from 'react'
 import './Track.css'
 
@@ -5,10 +6,12 @@ class Track extends React.Component {
   constructor(props) {
     super(props)
 
+    // Binds methods to `this`
     this.addTrack = this.addTrack.bind(this)
     this.removeTrack = this.removeTrack.bind(this)
   }
 
+  // Determines `-` or `+`
   renderAction() {
     if (!this.props.onAdd) {
       return <a className='Track-action' onClick={this.removeTrack}>-</a>
@@ -17,14 +20,17 @@ class Track extends React.Component {
     }
   }
 
+  // Handles addTrack event
   addTrack() {
     this.props.onAdd(this.props.track)
   }
 
+  // Handles removeTrack event
   removeTrack() {
     this.props.onRemove(this.props.track)
   }
 
+  // Render Constructor
   render() {
     return (
       <div className="Track">

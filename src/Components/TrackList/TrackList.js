@@ -1,9 +1,12 @@
+// Import react & CSS
 import React from 'react'
 import './TrackList.css'
 
+// Import Components
 import Track from '../Track/Track.js'
 
 class TrackList extends React.Component {
+  // Render Constructor
   render() {
     return (
       <div className="TrackList">

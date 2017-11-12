@@ -1,6 +1,8 @@
+// Import react & CSS
 import React from 'react'
 import './App.css'
 
+// Import Components
 import SearchBar from '../SearchBar/SearchBar.js'
 import SearchResults from '../SearchResults/SearchResults.js'
 import Playlist from '../Playlist/Playlist.js'
@@ -10,18 +12,14 @@ class App extends React.Component {
   constructor(props) {
     super(props)
 
+    // Set initial state
     this.state = {
-      searchResults: [
-        {id: '1', name: 'name1', artist: 'artist1', album: 'album1'},
-        {id: '2', name: 'name2', artist: 'artist2', album: 'album2'},
-        {id: '3', name: 'name3', artist: 'artist3', album: 'album3'}
-      ],
-      playlistName: 'playlist1',
-      playlistTracks: [
-        {id: '4', name: 'name4', artist: 'artist4', album: 'album4'}
-      ]
+      searchResults: [],
+      playlistName: 'New Playlist',
+      playlistTracks: []
     }
 
+    // Binds methods to `this`
     this.addTrack = this.addTrack.bind(this)
     this.removeTrack = this.removeTrack.bind(this)
     this.updatePlaylistName = this.updatePlaylistName.bind(this)
@@ -29,6 +27,7 @@ class App extends React.Component {
     this.search = this.search.bind(this)
   }
 
+  // Add tracks to playlist
   addTrack(track) {
      let tracks = this.state.playlistTracks
      if (!tracks.includes(track)) {
@@ -37,6 +36,7 @@ class App extends React.Component {
      }
    }
 
+   // Removes tracks from playlist
   removeTrack(track) {
     let tracks = this.state.playlistTracks
     if (tracks.includes(track)) {
@@ -48,12 +48,14 @@ class App extends React.Component {
     }
   }
 
+  // Updates name of playlist
   updatePlaylistName(name) {
     this.setState({
       playlistName: name
     })
   }
 
+  // Saves playlist to Spotify
   savePlaylist(){
     const trackUris = this.state.playlistTracks.map(track => track.uri)
     Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
@@ -64,6 +66,7 @@ class App extends React.Component {
     })
   }
 
+  // Handles search results from Spotify
   search(term) {
     Spotify.search(term).then(searchResults => {
       this.setState({
@@ -72,6 +75,7 @@ class App extends React.Component {
     })
   }
 
+  // Render Constructor
   render() {
     return (
       <div>

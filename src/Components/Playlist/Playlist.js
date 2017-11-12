@@ -1,19 +1,24 @@
+// Import react & CSS
 import React from 'react'
 import './Playlist.css'
 
+// Imports Components
 import TrackList from '../TrackList/TrackList.js'
 
 class Playlist extends React.Component {
   constructor(props) {
     super(props)
 
+    // Binds methods to `this`
     this.handleNameChange = this.handleNameChange.bind(this)
   }
 
+  // Handles change in playlist name
   handleNameChange(event) {
     this.props.onNameChange(event.target.value)
   }
 
+  // Render Constructor
   render() {
     return (
       <div className="Playlist">
